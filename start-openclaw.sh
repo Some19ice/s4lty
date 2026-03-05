@@ -230,13 +230,13 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_BASE_URL) {
         apiKey: process.env.OPENAI_API_KEY,
         api: 'openai-completions',
         models: [
-            { id: 'meta/llama-3.3-70b-instruct', name: 'Llama 3.3 70B', contextWindow: 131072, maxTokens: 4096 },
+            { id: 'qwen/qwen3.5-397b-a17b', name: 'Qwen 3.5 397B', contextWindow: 131072, maxTokens: 8192 },
         ],
     };
     // Set as default model
     config.agents = config.agents || {};
     config.agents.defaults = config.agents.defaults || {};
-    config.agents.defaults.model = { primary: 'openai/meta/llama-3.3-70b-instruct' };
+    config.agents.defaults.model = { primary: 'openai/qwen/qwen3.5-397b-a17b' };
     console.log('OpenAI-compatible provider configured with custom base URL: ' + process.env.OPENAI_BASE_URL);
 }
 
