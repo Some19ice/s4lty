@@ -238,10 +238,11 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_BASE_URL) {
             { id: 'qwen/qwen3.5-397b-a17b', name: 'Qwen 3.5 397B', contextWindow: 131072, maxTokens: 8192 },
         ],
     };
-    // Set as default model
+    // Set as default model and increase timeout for NVIDIA NIM
     config.agents = config.agents || {};
     config.agents.defaults = config.agents.defaults || {};
     config.agents.defaults.model = { primary: 'openai/qwen/qwen3.5-397b-a17b' };
+    config.agents.defaults.timeoutSeconds = 120;
     console.log('OpenAI-compatible provider configured with custom base URL: ' + process.env.OPENAI_BASE_URL);
 }
 
