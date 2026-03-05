@@ -4,6 +4,11 @@
 # AI Provider (at least one required)
 ANTHROPIC_API_KEY=sk-ant-...
 # OPENAI_API_KEY=sk-...
+# OPENAI_BASE_URL=https://api.openai.com/v1
+
+# NVIDIA NIM (OpenAI-compatible) - use OPENAI_API_KEY with NVIDIA's base URL
+# OPENAI_API_KEY=nvapi-...
+# OPENAI_BASE_URL=https://integrate.api.nvidia.com/v1
 
 # Cloudflare AI Gateway (alternative to direct provider keys)
 # CLOUDFLARE_AI_GATEWAY_API_KEY=your-provider-api-key

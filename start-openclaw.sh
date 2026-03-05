@@ -219,6 +219,18 @@ if (process.env.CF_AI_GATEWAY_MODEL) {
     }
 }
 
+// OpenAI-compatible provider base URL override (e.g., NVIDIA NIM)
+// When OPENAI_BASE_URL is set, patch the provider config so OpenClaw
+// uses the custom endpoint instead of the default OpenAI API.
+if (process.env.OPENAI_API_KEY && process.env.OPENAI_BASE_URL) {
+    config.models = config.models || {};
+    config.models.providers = config.models.providers || {};
+    config.models.providers['openai'] = config.models.providers['openai'] || {};
+    config.models.providers['openai'].baseUrl = process.env.OPENAI_BASE_URL;
+    config.models.providers['openai'].apiKey = process.env.OPENAI_API_KEY;
+    console.log('OpenAI-compatible provider configured with custom base URL: ' + process.env.OPENAI_BASE_URL);
+}
+
 // Telegram configuration
 // Overwrite entire channel object to drop stale keys from old R2 backups
 // that would fail OpenClaw's strict config validation (see #47)
