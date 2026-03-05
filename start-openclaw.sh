@@ -235,14 +235,14 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_BASE_URL) {
         apiKey: process.env.OPENAI_API_KEY,
         api: 'openai-completions',
         models: [
-            { id: 'qwen/qwen3.5-397b-a17b', name: 'Qwen 3.5 397B', contextWindow: 131072, maxTokens: 8192 },
+            { id: 'minimaxai/minimax-m2.5', name: 'MiniMax M2.5', contextWindow: 131072, maxTokens: 8192 },
         ],
     };
     // Set as default model and increase timeout for NVIDIA NIM
     config.agents = config.agents || {};
     config.agents.defaults = config.agents.defaults || {};
-    config.agents.defaults.model = { primary: 'openai/qwen/qwen3.5-397b-a17b' };
-    config.agents.defaults.timeoutSeconds = 120;
+    config.agents.defaults.model = { primary: 'openai/minimaxai/minimax-m2.5' };
+    config.agents.defaults.timeoutSeconds = 300;
     console.log('OpenAI-compatible provider configured with custom base URL: ' + process.env.OPENAI_BASE_URL);
 }
 
